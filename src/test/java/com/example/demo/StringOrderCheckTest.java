@@ -41,10 +41,17 @@ public class StringOrderCheckTest {
 
     @Test
     public void shouldReturnNewStringWhenNonAlphaNumericCharactersUsed() {
-        final String testString = "I'm not in order!";
+        final String testString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "
+                + "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis "
+                + "aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat "
+                + "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
         String actual = runTimedTest(testString);
 
-        assertThat(actual, is("   !'Ideimnnoorrt"));
+        assertThat(actual, is("                                                                    ,,,,..."
+                + ".DELUaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbccccccccccccccccddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                + "fffggghiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiilllllllllllllllllllllmmmmmmmmmmmmmmmmmnnnnnnnnnnnnnnnnnnnnnnnn"
+                + "ooooooooooooooooooooooooooooopppppppppppqqqqqrrrrrrrrrrrrrrrrrrrrrrsssssssssssssssssstttttttttttttttttttttttttttttttt"
+                + "uuuuuuuuuuuuuuuuuuuuuuuuuuuuvvvxxx"));
     }
 
     private String runTimedTest(String testString) {
@@ -58,12 +65,12 @@ public class StringOrderCheckTest {
             times[x] = end - start;
         }
 
-        long standardDeviation = 300L;
+        int standardDeviation = 30;
         System.out.println("********    StringOrderCheck Stats median: " + Statistics.computeMedian(times));
         System.out.println("********    StringOrderCheck Stats mode: " + Statistics.computeMode(times));
         System.out.println(
                 "********    StringOrderCheck Stats mean: " + Statistics.computeMean(times, standardDeviation) + " with Standard Deviation of "
-                        + standardDeviation);
+                        + standardDeviation + "%");
         System.out.println("********    StringOrderCheck Range: " + times[0] + " to " + times[loops - 1]);
 
         return target.solution(testString);

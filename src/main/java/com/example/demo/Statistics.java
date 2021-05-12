@@ -4,16 +4,18 @@ import java.util.Arrays;
 
 public class Statistics {
 
-    public static long computeMean(long[] list, long standardDeviation) {
+    public static long computeMean(long[] list, float standardDeviation) {
         long accumulator = 0;
-        final long size = list.length - standardDeviation;
+        float adjustment = (100 - standardDeviation) / 100;
+        final double size = list.length * adjustment;
+
         Arrays.sort(list);
 
         for (int index = 0; index < size; index++) {
             accumulator += list[index];
         }
 
-        return accumulator / size;
+        return (long) (accumulator / size);
     }
 
     public static long computeMedian(long[] list) {
