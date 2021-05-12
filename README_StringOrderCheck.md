@@ -13,4 +13,4 @@ characters are already in order.
 
 - Input: "abcdefg" ==> Output: "in order"
 - Input: "zyxwvu" ==> Output: "uvwxyz"
-- Input: "I'm not in order!" ==> Output: ""
+- Input: "I'm not in order!" ==> Output: "   !'Ideimnnoorrt"
