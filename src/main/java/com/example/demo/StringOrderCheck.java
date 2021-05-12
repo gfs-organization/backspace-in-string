@@ -2,7 +2,7 @@ package com.example.demo;
 
 public class StringOrderCheck {
 
-    public String isStringInOrder(final String testString) {
+    public String solution(final String testString) {
         final char[] chars = testString.toCharArray();
 
         for (int x = 0; x < chars.length; x++) {

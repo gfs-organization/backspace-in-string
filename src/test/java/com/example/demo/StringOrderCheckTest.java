@@ -39,13 +39,21 @@ public class StringOrderCheckTest {
         assertThat(actual, is("in order"));
     }
 
+    @Test
+    public void shouldReturnNewStringWhenNonAlphaNumericCharactersUsed() {
+        final String testString = "I'm not in order!";
+        String actual = runTimedTest(testString);
+
+        assertThat(actual, is("   !'Ideimnnoorrt"));
+    }
+
     private String runTimedTest(String testString) {
         final int loops = 1000;
         long[] times = new long[loops];
 
         for (int x = 0; x < loops; x++) {
             long start = System.nanoTime();
-            target.isStringInOrder(testString);
+            target.solution(testString);
             long end = System.nanoTime();
             times[x] = end - start;
         }
@@ -56,6 +64,6 @@ public class StringOrderCheckTest {
         }
 
         System.out.println("Average Nanos: " + averageTime / (loops - 1));
-        return target.isStringInOrder(testString);
+        return target.solution(testString);
     }
 }
