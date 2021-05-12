@@ -63,7 +63,7 @@ public class StringOrderCheckTest {
             averageTime += times[x];
         }
 
-        System.out.println("Average Nanos: " + averageTime / (loops - 1));
+        System.out.println("StringOrderCheck Average Nanos: " + averageTime / (loops - 1));
         return target.solution(testString);
     }
 }
