@@ -26,4 +26,4 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - name: Benchmark
-        run: clean compile exec:java -f pom.xml
+        run: mvn clean compile exec:java -f pom.xml
