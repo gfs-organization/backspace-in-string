@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.gfs.codechallenge;
 
 public class BackspacesInString {
 

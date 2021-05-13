@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.gfs.codechallenge;
+
+import java.util.Arrays;
 
 public class StringOrderCheck {
 
@@ -21,5 +23,15 @@ public class StringOrderCheck {
         }
 
         return new String(chars);
+    }
+
+    public String jeremySolution(final String testString) {
+        char[] stringChars = testString.toCharArray();
+        char[] copy = Arrays.copyOf(stringChars, stringChars.length);
+        Arrays.sort(stringChars);
+        if (Arrays.equals(stringChars, copy)) {
+            return "in order";
+        }
+        return new String(stringChars);
     }
 }

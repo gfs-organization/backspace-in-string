@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.gfs.codechallenge;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -18,7 +18,7 @@ public class StringOrderCheckTest {
     @Test
     public void shouldReturnOrderedStringWhenLettersNotInOrder() {
         final String testString = "zbcdefghijklmnopqrstuawyxv";
-        String actual = runTimedTest(testString);
+        String actual = target.jeremySolution(testString);
 
         assertThat(actual, is("abcdefghijklmnopqrstuvwxyz"));
     }
@@ -26,7 +26,7 @@ public class StringOrderCheckTest {
     @Test
     public void shouldReturnTrueWhenLettersAreInOrder() {
         final String testString = "abcdefghijklmnop";
-        String actual = runTimedTest(testString);
+        String actual = target.jeremySolution(testString);
 
         assertThat(actual, is("in order"));
     }
@@ -34,7 +34,7 @@ public class StringOrderCheckTest {
     @Test
     public void shouldReturnTrueWhenNumbersAreInOrder() {
         final String testString = "1234";
-        String actual = runTimedTest(testString);
+        String actual = target.jeremySolution(testString);
 
         assertThat(actual, is("in order"));
     }
@@ -45,7 +45,7 @@ public class StringOrderCheckTest {
                 + "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis "
                 + "aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat "
                 + "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-        String actual = runTimedTest(testString);
+        String actual = target.jeremySolution(testString);
 
         assertThat(actual, is("                                                                    ,,,,..."
                 + ".DELUaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbccccccccccccccccddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
@@ -55,12 +55,13 @@ public class StringOrderCheckTest {
     }
 
     private String runTimedTest(String testString) {
+        StringOrderCheck target = new StringOrderCheck();
         final int loops = 1000;
         long[] times = new long[loops];
 
         for (int x = 0; x < loops; x++) {
             long start = System.nanoTime();
-            target.solution(testString);
+            target.jeremySolution(testString);
             long end = System.nanoTime();
             times[x] = end - start;
         }
