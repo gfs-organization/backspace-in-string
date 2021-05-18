@@ -54,26 +54,4 @@ public class StringOrderCheckTest {
                 + "uuuuuuuuuuuuuuuuuuuuuuuuuuuuvvvxxx"));
     }
 
-    private String runTimedTest(String testString) {
-        StringOrderCheck target = new StringOrderCheck();
-        final int loops = 1000;
-        long[] times = new long[loops];
-
-        for (int x = 0; x < loops; x++) {
-            long start = System.nanoTime();
-            target.solution(testString);
-            long end = System.nanoTime();
-            times[x] = end - start;
-        }
-
-        int standardDeviation = 30;
-        System.out.println("********    StringOrderCheck Stats median: " + Statistics.computeMedian(times));
-        System.out.println("********    StringOrderCheck Stats mode: " + Statistics.computeMode(times));
-        System.out.println(
-                "********    StringOrderCheck Stats mean: " + Statistics.computeMean(times, standardDeviation) + " with Standard Deviation of "
-                        + standardDeviation + "%");
-        System.out.println("********    StringOrderCheck Range: " + times[0] + " to " + times[loops - 1]);
-
-        return target.solution(testString);
-    }
 }

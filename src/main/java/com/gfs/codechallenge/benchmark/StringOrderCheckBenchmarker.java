@@ -1,19 +1,12 @@
 package com.gfs.codechallenge.benchmark;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-
 import com.gfs.codechallenge.StringOrderCheck;
 
 public class StringOrderCheckBenchmarker {
 
-    @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
-    @BenchmarkMode(Mode.AverageTime)
+    //    @Benchmark
+    //    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    //    @BenchmarkMode(Mode.AverageTime)
     public void benchmark_test_231() {
         // 231 character run
         String testString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore "

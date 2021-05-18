@@ -12,6 +12,5 @@ Your task is to process a string with "#" symbols.
 
 #### Examples:
 
-- Input: "abc#d##c" ==> Output: "ac"
+- Input: "abc#d#c" ==> Output: "abc"
 - Input: "abc##d######" ==> Output: ""
-- Input: "#######" ==> Output: ""
