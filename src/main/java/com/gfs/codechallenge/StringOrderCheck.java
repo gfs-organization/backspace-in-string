@@ -1,26 +1,20 @@
 package com.gfs.codechallenge;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public class StringOrderCheck {
 
     public String solution(final String testString) {
-        final char[] chars = testString.toCharArray();
-
-        for (int x = 0; x < chars.length; x++) {
-            for (int y = x + 1; y < chars.length; y++) {
-                char current = chars[x];
-                char next = chars[y];
-                if (current > next) {
-                    chars[x] = next;
-                    chars[y] = current;
-                }
-            }
-        }
-
-        if (testString.equals(new String(chars))) {
+        byte[] testStringBytes = testString.getBytes(StandardCharsets.US_ASCII);
+        var resultBytes = new byte[testStringBytes.length];
+        System.arraycopy(testStringBytes, 0, resultBytes, 0, testStringBytes.length); // Store byte copy to compare later.
+        Arrays.sort(testStringBytes); // Internal java array sort lib uses merge sort so it's pretty fast
+        if (Arrays.equals(testStringBytes, resultBytes)) {
             return "in order";
+        } else {
+            return new String(testStringBytes, StandardCharsets.US_ASCII);
         }
-
-        return new String(chars);
     }
 
 }
