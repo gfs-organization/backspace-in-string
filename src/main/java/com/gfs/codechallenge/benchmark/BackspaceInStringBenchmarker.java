@@ -7,8 +7,6 @@ import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 
-import com.gfs.codechallenge.StringOrderCheck;
-
 public class BackspaceInStringBenchmarker {
 
     @Benchmark
