@@ -1,4 +1,4 @@
-package com.gfs.codechallenge;
+package com.gfs.backspaceinstring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-## Combine Two Strings
+# Combine Two Strings
 
 Your task is to Combine two Strings. But consider the rule...
 

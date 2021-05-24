@@ -1,4 +1,4 @@
-package com.gfs.codechallenge.benchmark;
+package com.gfs.backspaceinstring.benchmark;
 
 public class BenchmarkRunner {
 

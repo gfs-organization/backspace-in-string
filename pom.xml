@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.gfs</groupId>
-    <artifactId>code-challenge</artifactId>
+    <artifactId>backspace-in-string</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>code-challenge</name>
+    <name>backspace-in-string</name>
     <description>Collection of code challenges, tests, timers for GTS</description>
 
     <parent>
@@ -75,7 +75,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>com.gfs.codechallenge.benchmark.BenchmarkRunner</mainClass>
+                    <mainClass>com.gfs.backspaceinstring.benchmark.BenchmarkRunner</mainClass>
                     <systemProperties>
                         <systemProperty>
                             <key>java.class.path</key>

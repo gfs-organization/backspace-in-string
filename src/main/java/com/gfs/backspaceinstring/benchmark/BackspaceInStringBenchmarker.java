@@ -1,4 +1,4 @@
-package com.gfs.codechallenge.benchmark;
+package com.gfs.backspaceinstring.benchmark;
 
 import java.util.concurrent.TimeUnit;
 
@@ -6,6 +6,8 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
+
+import com.gfs.backspaceinstring.BackspacesInString;
 
 public class BackspaceInStringBenchmarker {
 
@@ -16,7 +18,7 @@ public class BackspaceInStringBenchmarker {
         // 231 character run
         String testString = "Lor#m ipsum dolor sit am#t, cons#ct#tur adipiscing #lit, s#d do #iusmod t#mpor incididunt ut labor# #t dolor#"
                 + "magna aliqua. Ut #nim ad minim v#niam, quis nostrud #x#rcitation ullamco laboris nisi ut aliquip #x #a commodo cons#quat.";
-        StringOrderCheck target = new StringOrderCheck();
+        BackspacesInString target = new BackspacesInString();
         target.solution(testString);
 
         // 445 character run

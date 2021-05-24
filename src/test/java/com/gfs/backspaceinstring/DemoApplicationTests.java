@@ -1,4 +1,4 @@
-package com.gfs.codechallenge;
+package com.gfs.backspaceinstring;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
