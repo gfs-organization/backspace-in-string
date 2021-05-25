@@ -62,6 +62,7 @@ public class BackspaceInStringBenchmarker {
                 + "hav# to b# r#pudiat#d and annoyanc#s acc#pt#d. Th# wis# man th#r#for# a#ways ho#ds in th#s# matt#rs to this princip## of "
                 + "s###ction: h# r#j#cts p##asur#s to s#cur# oth#r #r#at#r p##asur#s, or ##s# h# #ndur#s pains to avoid wors# pains.";
         target.solution(testString);
+
     }
 
 }
