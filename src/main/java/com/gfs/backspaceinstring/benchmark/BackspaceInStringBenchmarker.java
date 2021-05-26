@@ -15,6 +15,7 @@ public class BackspaceInStringBenchmarker {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     @BenchmarkMode(Mode.AverageTime)
     public void benchmark_test() {
+
         // 231 character run
         String testString = "Lor#m ipsum dolor sit am#t, cons#ct#tur adipiscing #lit, s#d do #iusmod t#mpor incididunt ut labor# #t dolor#"
                 + "magna aliqua. Ut #nim ad minim v#niam, quis nostrud #x#rcitation ullamco laboris nisi ut aliquip #x #a commodo cons#quat.";
@@ -29,7 +30,6 @@ public class BackspaceInStringBenchmarker {
         target.solution(testString);
 
         // 3671 character run
-
         testString = "S#d ut p#rspiciatis und# omnis ist# natus #rror sit vo#uptat#m accusantium do#or#mqu# #audantium, totam r#m "
                 + "ap#riam, #aqu# ipsa qua# ab i##o inv#ntor# v#ritatis #t quasi archit#cto b#ata# vita# dicta sunt #xp#icabo. N#mo #nim ipsam "
                 + "vo#uptat#m quia vo#uptas sit asp#rnatur aut odit aut fu#it, s#d quia cons#quuntur ma#ni do#or#s #os qui ration# vo#uptat#m s#qui"
@@ -64,5 +64,9 @@ public class BackspaceInStringBenchmarker {
         target.solution(testString);
 
     }
+
+    //    private void logMemmory() {
+    //                memmoryUse.add((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024);
+    //    }
 
 }
