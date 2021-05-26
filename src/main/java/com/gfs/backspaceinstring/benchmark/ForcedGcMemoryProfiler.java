@@ -308,21 +308,21 @@ public class ForcedGcMemoryProfiler implements InternalProfiler {
      * Hack to obtain process ID. Should work on Unix/Linux and Windows.
      */
     private static Long getProcessId() {
-        if (isJava9()) {
-            return getProcessIdJava9();
-        }
-        try {
-            java.lang.management.RuntimeMXBean _runtimeMXBean = java.lang.management.ManagementFactory.getRuntimeMXBean();
-            java.lang.reflect.Field jvm = _runtimeMXBean.getClass().getDeclaredField("jvm");
-            jvm.setAccessible(true);
-            sun.management.VMManagement mgm = (sun.management.VMManagement) jvm.get(_runtimeMXBean);
-            java.lang.reflect.Method _method = mgm.getClass().getDeclaredMethod("getProcessId");
-            _method.setAccessible(true);
-            return ((Integer) _method.invoke(mgm)).longValue();
-        } catch (Exception ex) {
-            System.err.println("ForcedGcMemoryProfiler: error obtaining PID");
-            ex.printStackTrace();
-        }
+        //        if (isJava9()) {
+        //            return getProcessIdJava9();
+        //        }
+        //        try {
+        //            java.lang.management.RuntimeMXBean _runtimeMXBean = java.lang.management.ManagementFactory.getRuntimeMXBean();
+        //            java.lang.reflect.Field jvm = _runtimeMXBean.getClass().getDeclaredField("jvm");
+        //            jvm.setAccessible(true);
+        //            sun.management.VMManagement mgm = (sun.management.VMManagement) jvm.get(_runtimeMXBean);
+        //            java.lang.reflect.Method _method = mgm.getClass().getDeclaredMethod("getProcessId");
+        //            _method.setAccessible(true);
+        //            return ((Integer) _method.invoke(mgm)).longValue();
+        //        } catch (Exception ex) {
+        //            System.err.println("ForcedGcMemoryProfiler: error obtaining PID");
+        //            ex.printStackTrace();
+        //        }
         return null;
     }
 
