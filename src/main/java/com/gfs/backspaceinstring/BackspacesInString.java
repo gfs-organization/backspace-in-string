@@ -1,28 +1,34 @@
 package com.gfs.backspaceinstring;
 
 public class BackspacesInString {
+    final int backspace = Character.codePointAt(new char[] { '#' }, 0);
 
     public String solution(final String testString) {
-        final char[] input = testString.toCharArray();
 
-        final int len = input.length;
-        final char[] buffer = new char[input.length];
-        int bufferPosition = 0;
+        final int len = testString.length();
+        final StringBuilder buffer = new StringBuilder(len);
 
-        char c = 0;
-        for (int i = 0; i < len; i++) {
-            c = input[i];
-            if (c == '#') {
-                if (bufferPosition > 0) {
-                    bufferPosition--;
+        int cp = 0;
+        int bufferLen = 0;
+        for (int offset = 0; offset < len; ) {
+            cp = testString.codePointAt(offset);
+            offset += Character.charCount(cp);
+
+            if (cp == backspace) {
+                if (buffer.length() < 1) {
+                    continue;
                 }
-            } else {
-                buffer[bufferPosition] = c;
-                bufferPosition++;
-            }
-        }
 
-        return new String(buffer, 0, bufferPosition);
+                bufferLen = buffer.length();
+                bufferLen = buffer.offsetByCodePoints(bufferLen, -1);
+                buffer.setLength(bufferLen);
+            } else {
+                buffer.appendCodePoint(cp);
+            }
+
+        }
+        return buffer.toString();
 
     }
+
 }
