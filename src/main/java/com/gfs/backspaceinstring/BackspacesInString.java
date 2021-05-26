@@ -1,26 +1,13 @@
 package com.gfs.backspaceinstring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BackspacesInString {
 
-    public String solution(final String input) {
-
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-        
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
-                }
-            } else {
-                runningChars.add(chars[x]);
-            }
+    public String solution(final String testString) {
+        StringBuilder output = new StringBuilder(testString);
+        for (int nextBackspace = output.indexOf("#"); nextBackspace != -1; nextBackspace = output.indexOf("#")) {
+            output.delete(Math.max(0, nextBackspace - 1), nextBackspace + 1);
         }
-
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        return output.toString();
     }
+
 }
