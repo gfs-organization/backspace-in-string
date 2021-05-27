@@ -10,16 +10,20 @@ public class BackspacesInString {
             if (c == BACK_SPACE) {
                 ++backSpaceCount;
             } else {
-                if (backSpaceCount > sb.length()) {
-                    sb.setLength(0);
-                } else {
-                    sb.setLength(sb.length() - backSpaceCount);
-                }
+                resetLength(sb, backSpaceCount);
                 backSpaceCount = 0;
                 sb.append(c);
             }
-
         }
+        resetLength(sb, backSpaceCount);
         return sb.toString();
+    }
+
+    private static void resetLength(final StringBuilder sb, final int backSpaceCount) {
+        if (backSpaceCount > sb.length()) {
+            sb.setLength(0);
+        } else {
+            sb.setLength(sb.length() - backSpaceCount);
+        }
     }
 }
