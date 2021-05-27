@@ -322,8 +322,10 @@ public class ForcedGcMemoryProfiler implements InternalProfiler {
         //        } catch (Exception ex) {
         //            System.err.println("ForcedGcMemoryProfiler: error obtaining PID");
         //            ex.printStackTrace();
-        //        }
+        //            //        }
         return null;
+        //    }
+
     }
 
     /**
