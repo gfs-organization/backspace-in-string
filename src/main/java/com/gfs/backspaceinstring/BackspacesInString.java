@@ -1,26 +1,27 @@
 package com.gfs.backspaceinstring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
+/**
+ * Basic left to right scan
+ */
 public class BackspacesInString {
 
     public String solution(final String input) {
 
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-        
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
-                }
-            } else {
-                runningChars.add(chars[x]);
-            }
-        }
+        final char[] arr = input.toCharArray();
+        final int len = arr.length;
 
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        int idx = 0;
+        for (int i = 0; i < len; i++) {
+            final char c = arr[i];
+            if (c == '#') {
+                if (idx > 0) {
+                    idx--;
+                }
+                continue;
+            }
+            arr[idx++] = c;
+        }
+        return new String(arr, 0, idx);
     }
+
 }
