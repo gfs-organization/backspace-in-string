@@ -17,6 +17,7 @@ public class BenchmarkRunner {
                 .warmupTime(TimeValue.seconds(1))
                 .addProfiler(GCProfiler.class)
                 .addProfiler(CpuProfiler.class)
+                .addProfiler(ForcedGcMemoryProfiler.class)
                 .build())
                 .run();
         //@formatter:on
