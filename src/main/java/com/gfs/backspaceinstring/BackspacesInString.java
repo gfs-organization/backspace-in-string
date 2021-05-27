@@ -3,7 +3,7 @@ package com.gfs.backspaceinstring;
 public class BackspacesInString {
 
     public String solution(final String input) {
-        var resultCharArray = new char[input.length()];
+        var tempResult = new char[input.length()];
         var stringIndex = 0;
 
         for (var i = 0; i < input.length(); i++) {
@@ -14,11 +14,10 @@ public class BackspacesInString {
                     stringIndex--; // Delete previous char if index allows
                 }
             } else {
-                resultCharArray[stringIndex] = input.charAt(i);
+                tempResult[stringIndex] = input.charAt(i);
                 stringIndex++; // Increase string index since we have a new char to look at
             }
         }
-
-        return new String(resultCharArray, 0, stringIndex);
+        return String.valueOf(tempResult, 0, stringIndex);
     }
 }
