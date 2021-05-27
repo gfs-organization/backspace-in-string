@@ -11,9 +11,9 @@ public class BackspacesInString {
             } else if (backspaceCount > 0) {
                 backspaceCount--;
             } else {
-                sb.insert(0, input.charAt(i));
+                sb.append(input.charAt(i));
             }
         }
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
