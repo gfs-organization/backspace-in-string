@@ -1,35 +1,19 @@
 package com.gfs.backspaceinstring;
 
-import java.util.Iterator;
-import java.util.Stack;
-
 public class BackspacesInString {
     private static char BACK_SPACE = '#';
 
-    public String solution(final String inputString) {
-
-        final Stack stack = stringAfterBackSpaces(inputString);
-
-        final Iterator itr = stack.iterator();
-        final char[] charArray = new char[stack.size()];
-        int count = 0;
-        while (itr.hasNext()) {
-            charArray[count++] = (char) itr.next();
-        }
-        return String.valueOf(charArray);
-    }
-
-    private static Stack stringAfterBackSpaces(final String input) {
-        final Stack stack = new Stack();
-        for (char c : input.toCharArray()) {
+    public static String solution(final String inputString) {
+        final StringBuilder sb = new StringBuilder();
+        for (final char c : inputString.toCharArray()) {
             if (c == BACK_SPACE) {
-                if (!stack.isEmpty()) {
-                    stack.pop();
+                if (sb.length() > 0) {
+                    sb.setLength(sb.length() - 1);
                 }
             } else {
-                stack.push(c);
+                sb.append(c);
             }
         }
-        return stack;
+        return sb.toString();
     }
 }
