@@ -2,25 +2,36 @@ package com.gfs.backspaceinstring;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BackspacesInString {
 
     public String solution(final String input) {
+        List<Character> arrayList = convertStringToCharList(input);
 
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-        
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
+        while (arrayList.contains('#')) {
+            // Remove the '#' that is closest to the front of the array
+            int nextBackspaceIndex = arrayList.indexOf('#');
+            arrayList.remove(nextBackspaceIndex);
+
+            // Find and remove the closest non '#' char on the left side of the '#' that just got removed
+            for (int i = nextBackspaceIndex - 1; i >= 0; i--) {
+                if (arrayList.get(i) != '#') {
+                    arrayList.remove(i);
+                    break;
                 }
-            } else {
-                runningChars.add(chars[x]);
             }
         }
 
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        return arrayList.toString();
+    }
+
+    public static List<Character> convertStringToCharList(String input) {
+        List<Character> charList = new ArrayList<>();
+
+        for (char ch : input.toCharArray()) {
+            charList.add(ch);
+        }
+
+        return charList;
     }
 }
