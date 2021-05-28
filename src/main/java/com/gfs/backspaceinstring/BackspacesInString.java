@@ -1,26 +1,35 @@
 package com.gfs.backspaceinstring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BackspacesInString {
+    public String solution(final String testString) {
+        return removeBackspaces(testString);
+    }
 
-    public String solution(final String input) {
+    private String removeBackspaces(String testString) {
+        char[] charArray = testString.toCharArray();
+        int charsToDelete = 0;
 
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-        
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
-                }
+        for (int i = charArray.length - 1; i >= 0; i--) {
+            char c = charArray[i];
+            if (c == '#') {
+                charsToDelete++;
+                charArray[i] = '\u0000';
+            } else if (charsToDelete > 0) {
+                charsToDelete--;
+                charArray[i] = '\u0000';
             } else {
-                runningChars.add(chars[x]);
+                charArray[i] = c;
             }
         }
 
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : charArray) {
+            if (c != '\u0000') {
+                sb = sb.append(c);
+            }
+        }
+
+        return sb.toString();
     }
 }
