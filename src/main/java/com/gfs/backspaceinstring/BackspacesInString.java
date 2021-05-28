@@ -18,6 +18,10 @@ public class BackspacesInString {
                 stringIndex++; // Increase string index since we have a new char to look at
             }
         }
-        return String.valueOf(tempResult, 0, stringIndex);
+
+        var resultBytes = new char[stringIndex];
+        System.arraycopy(tempResult, 0, resultBytes, 0, stringIndex);
+
+        return new String(resultBytes);
     }
 }
