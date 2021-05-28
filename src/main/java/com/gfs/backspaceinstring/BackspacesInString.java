@@ -1,26 +1,29 @@
 package com.gfs.backspaceinstring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BackspacesInString {
 
     public String solution(final String input) {
+        Character[] temp = new Character[input.length()];
 
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-        
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
-                }
+        int currentIndex = 0;
+        char[] inputArray = input.toCharArray();
+        for (int i = 0; i < input.length(); i++) {
+            char currentCharacter = inputArray[i];
+            if (currentCharacter == '#') {
+                //Don't need to actually delete the character, just move back and overwrite it later if necessary
+                currentIndex = Math.max(currentIndex - 1, 0);
             } else {
-                runningChars.add(chars[x]);
+                temp[currentIndex] = currentCharacter;
+                currentIndex++;
             }
         }
 
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < currentIndex; i++) {
+            //The array could be huge, but if our index is at 0 it won't print.
+            sb.append(temp[i]);
+        }
+
+        return sb.toString();
     }
 }
