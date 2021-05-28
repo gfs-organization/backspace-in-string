@@ -1,19 +1,18 @@
 package com.gfs.backspaceinstring;
 
-import java.util.HashMap;
-
 public class BackspacesInString {
-    private static final HashMap<String, String> seenStrings = new HashMap<>();
+    private static StringBuilder solutionBuilder = new StringBuilder();
 
     public String solution(final String testString) {
-        return seenStrings.computeIfAbsent(testString, s -> {
-            byte[] bytes = s.getBytes();
-            for (int i = 0; i < bytes.length; i++) {
-                if (bytes[i] == 35) {
-                    bytes[i] = 8;
-                }
+        for (int i = 0; i < testString.length(); i++) {
+            if (testString.charAt(i) == '#') {
+                solutionBuilder.setLength(Math.max(solutionBuilder.length() - 1, 0));
+            } else {
+                solutionBuilder.append(testString.charAt(i));
             }
-            return new String(bytes);
-        });
+        }
+        String output = solutionBuilder.toString();
+        solutionBuilder.setLength(0);
+        return output;
     }
 }
