@@ -1,11 +1,12 @@
 package com.gfs.backspaceinstring;
 
 public class BackspacesInString {
+
     public String solution(final String input) {
         //        return arraySolution(input);
         //        return regexSolution(input);
-        return indexSolution(input);
-        //        return indexSolutionRecurse(input);
+        //        return indexSolution(input);
+        return indexSolutionRecurse(input);
         //        return input.replace('#', (char)8);
     }
 
@@ -55,4 +56,5 @@ public class BackspacesInString {
         }
         return buffer.toString();
     }
+
 }
