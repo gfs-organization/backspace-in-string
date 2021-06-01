@@ -22,7 +22,13 @@ public class BackspacesInString {
             }
         }
 
-        return arrayList.toString();
+        StringBuilder sb = new StringBuilder();
+
+        for (Character ch : arrayList) {
+            sb.append(ch.toString());
+        }
+
+        return sb.toString();
     }
 
     public static List<Character> convertStringToCharList(String input) {
