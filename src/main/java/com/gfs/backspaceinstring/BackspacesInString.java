@@ -2,20 +2,18 @@ package com.gfs.backspaceinstring;
 
 public class BackspacesInString {
     public String solution(final String testString) {
-        StringBuilder solutionBuilder = new StringBuilder();
         final int testStringLength = testString.length();
-        solutionBuilder.ensureCapacity(testStringLength);
-        int i = 0;
-        while (i < testStringLength) {
-            if (testString.charAt(i) == '#') {
-                if (solutionBuilder.length() > 0) {
-                    solutionBuilder.deleteCharAt(solutionBuilder.length() - 1);
-                }
+        final char[] chars = new char[testStringLength];
+        int index = 0;
+        int outputLength = 0;
+        while (index < testStringLength) {
+            final char thisChar = testString.charAt(index++);
+            if (thisChar == '#') {
+                outputLength = Math.max(outputLength - 1, 0);
             } else {
-                solutionBuilder.append(testString.charAt(i));
+                chars[outputLength++] = thisChar;
             }
-            i++;
         }
-        return solutionBuilder.toString();
+        return new String(chars, 0, outputLength);
     }
 }
