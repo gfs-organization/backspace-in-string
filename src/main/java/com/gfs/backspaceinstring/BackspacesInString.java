@@ -8,24 +8,18 @@ public class BackspacesInString {
             final Field field = String.class.getDeclaredField("value");
             field.setAccessible(true);
             final byte[] chars = (byte[]) field.get(input);
-            int backspaceCount = 0;
-            int currChar = input.length();
-            for (int i = currChar - 1; i >= 0; i--) {
+            int currChar = 0;
+            for (int i = 0; i < chars.length; i++) {
                 if (chars[i] == 35) {
-                    backspaceCount++;
-                } else if (backspaceCount > 0) {
-                    backspaceCount--;
-                } else {
-                    currChar--;
-                    if (currChar != i) {
-                        chars[currChar] = chars[i];
+                    if (currChar > 0) {
+                        currChar--;
                     }
+                } else {
+                    chars[currChar] = chars[i];
+                    currChar++;
                 }
             }
-            for (int i = 0; i < currChar; i++) {
-                chars[i] = '#';
-            }
-            return new String(chars, currChar, input.length() - currChar);
+            return new String(chars, 0, currChar);
         } catch (final Exception thisIsAGoodIdea) {
             return "";
         }
