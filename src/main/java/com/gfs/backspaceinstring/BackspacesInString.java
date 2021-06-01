@@ -3,10 +3,10 @@ package com.gfs.backspaceinstring;
 public class BackspacesInString {
     public String solution(final String testString) {
         StringBuilder solutionBuilder = new StringBuilder();
-        solutionBuilder.ensureCapacity(testString.length());
+        final int testStringLength = testString.length();
+        solutionBuilder.ensureCapacity(testStringLength);
         int i = 0;
-        final int len = testString.length();
-        while (i < len) {
+        while (i < testStringLength) {
             if (testString.charAt(i) == '#') {
                 if (solutionBuilder.length() > 0) {
                     solutionBuilder.deleteCharAt(solutionBuilder.length() - 1);
@@ -16,8 +16,6 @@ public class BackspacesInString {
             }
             i++;
         }
-        String output = solutionBuilder.toString();
-        solutionBuilder.setLength(0);
-        return output;
+        return solutionBuilder.toString();
     }
 }
