@@ -1,24 +1,32 @@
 package com.gfs.backspaceinstring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.nio.charset.StandardCharsets;
+import java.util.Stack;
 
 public class BackspacesInString {
     public String solution(final String input) {
-        List<Character> runningChars = new ArrayList<>();
-        final char[] chars = input.toCharArray();
-
-        for (int x = 0; x < chars.length; x++) {
-            if (chars[x] == '#') {
-                if (x > 0 && runningChars.size() > 0) {
-                    runningChars.remove(runningChars.size() - 1);
+        Stack<Byte> result = new Stack<>();
+        byte spaceChar = '#';
+        for (byte aByte : input.getBytes(StandardCharsets.UTF_8)) {
+            if (aByte == spaceChar) {
+                if (result.size() > 0) {
+                    result.pop();
                 }
             } else {
-                runningChars.add(chars[x]);
+                result.push(aByte);
             }
         }
 
-        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        if (result.isEmpty()) {
+            return "";
+        }
+
+        byte[] resultByte = new byte[result.size()];
+        for (int i = result.size() - 1; i >= 0; i--) {
+            resultByte[i] = result.pop();
+        }
+
+        return new String(resultByte);
+
     }
 }
