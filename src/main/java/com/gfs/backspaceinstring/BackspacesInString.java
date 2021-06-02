@@ -1,27 +1,24 @@
 package com.gfs.backspaceinstring;
 
-import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class BackspacesInString {
     public String solution(final String input) {
-        try {
-            final Field field = String.class.getDeclaredField("value");
-            field.setAccessible(true);
-            final byte[] chars = (byte[]) field.get(input);
-            int currChar = 0;
-            for (int i = 0; i < chars.length; i++) {
-                if (chars[i] == 35) {
-                    if (currChar > 0) {
-                        currChar--;
-                    }
-                } else {
-                    chars[currChar] = chars[i];
-                    currChar++;
+        List<Character> runningChars = new ArrayList<>();
+        final char[] chars = input.toCharArray();
+
+        for (int x = 0; x < chars.length; x++) {
+            if (chars[x] == '#') {
+                if (x > 0 && runningChars.size() > 0) {
+                    runningChars.remove(runningChars.size() - 1);
                 }
+            } else {
+                runningChars.add(chars[x]);
             }
-            return new String(chars, 0, currChar);
-        } catch (final Exception thisIsAGoodIdea) {
-            return "";
         }
+
+        return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
     }
 }
