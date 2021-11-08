@@ -10,7 +10,7 @@ public class BackspacesInString {
 
         List<Character> runningChars = new ArrayList<>();
         final char[] chars = input.toCharArray();
-        
+
         for (int x = 0; x < chars.length; x++) {
             if (chars[x] == '#') {
                 if (x > 0 && runningChars.size() > 0) {
@@ -22,5 +22,6 @@ public class BackspacesInString {
         }
 
         return runningChars.stream().map(c -> c.toString()).collect(Collectors.joining());
+        //teste
     }
 }
