@@ -1,4 +1,4 @@
-package com.gfs.backspaceinstring;
+package com.gfs.codechallenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoApplication {
 
-    @GetMapping("/")
-    String home() {
-        return "Spring is here!";
-    }
+  @GetMapping("/")
+  String home() {
+    return "Spring is here!";
+  }
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(DemoApplication.class, args);
+  }
 }
