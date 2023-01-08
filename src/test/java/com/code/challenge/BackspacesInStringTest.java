@@ -1,9 +1,9 @@
-package com.gfs.codechallenge;
+package com.code.challenge;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import com.gfs.codechallenge.benchmark.RandomStringUtil;
+import com.code.challenge.benchmark.RandomStringUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

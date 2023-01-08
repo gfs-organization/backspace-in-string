@@ -1,4 +1,4 @@
-package com.gfs.codechallenge;
+package com.code.challenge;
 
 import java.util.ArrayList;
 import java.util.List;

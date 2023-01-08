@@ -1,4 +1,4 @@
-package com.gfs.codechallenge.benchmark;
+package com.code.challenge.benchmark;
 
 public class RandomStringUtil {
 

@@ -1,6 +1,6 @@
-package com.gfs.codechallenge.benchmark;
+package com.code.challenge.benchmark;
 
-import com.gfs.codechallenge.BackspacesInString;
+import com.code.challenge.BackspacesInString;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 

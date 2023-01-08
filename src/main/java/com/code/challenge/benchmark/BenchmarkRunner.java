@@ -1,7 +1,8 @@
-package com.gfs.codechallenge.benchmark;
+package com.code.challenge.benchmark;
 
 import org.openjdk.jmh.profile.GCProfiler;
 import org.openjdk.jmh.profile.JavaFlightRecorderProfiler;
+import org.openjdk.jmh.profile.StackProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
@@ -17,7 +18,7 @@ public class BenchmarkRunner {
                 .measurementTime(TimeValue.seconds(1))
                 .warmupTime(TimeValue.seconds(1))
                 .addProfiler(GCProfiler.class)
-                //.addProfiler(ForcedGcMemoryProfiler.class)
+                .addProfiler(StackProfiler.class)
                 .addProfiler(JavaFlightRecorderProfiler.class)
                 .build())
                 .run();
