@@ -1,5 +1,7 @@
 # Tribonacci Sequence
 
+Originally from [Codewars.com](https://www.codewars.com/kata/556deca17c58da83c00002db/train/java)
+
 ### Instructions
 
 Well met with Fibonacci bigger brother, AKA Tribonacci.

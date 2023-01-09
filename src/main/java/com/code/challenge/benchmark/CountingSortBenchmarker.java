@@ -2,11 +2,6 @@ package com.code.challenge.benchmark;
 
 import com.code.challenge.CountingSort1;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
@@ -26,9 +21,9 @@ public class CountingSortBenchmarker {
     }
   }
 
-  @Benchmark
-  @OutputTimeUnit(TimeUnit.NANOSECONDS)
-  @BenchmarkMode(Mode.AverageTime)
+  //@Benchmark
+  //@OutputTimeUnit(TimeUnit.NANOSECONDS)
+  //@BenchmarkMode(Mode.AverageTime)
   public void countingSort_test(CountingSortBenchmarker.MyState state) {
     CountingSort1 target = new CountingSort1();
 

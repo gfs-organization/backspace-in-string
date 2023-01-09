@@ -1,5 +1,8 @@
 package com.code.challenge;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.DoubleStream;
+
 public class Xbonacci {
 
   public double[] tribonacci(double[] s, int n) {
@@ -14,5 +17,26 @@ public class Xbonacci {
     }
 
     return result;
+  }
+
+  public double[] tribonacci_stream(double[] s, int n) {
+
+    AtomicInteger x = new AtomicInteger(1);
+    return DoubleStream.iterate(s[0],
+            current -> {
+              if (x.intValue() < 3) {
+                current = s[x.getAndIncrement()];
+              } else {
+                current = s[0] + s[1] + s[2];
+                s[0] = s[1];
+                s[1] = s[2];
+                s[2] = current;
+              }
+
+              return current;
+            })
+        .limit(n)
+        .toArray();
+
   }
 }

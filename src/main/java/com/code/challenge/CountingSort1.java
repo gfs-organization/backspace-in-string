@@ -24,14 +24,15 @@ public class CountingSort1 {
     int[] sorted = new int[toSort.length];
     int z = 0;
 
+    StringBuilder builder = new StringBuilder(); // for printing only
+
     for (int x = 0; x < toSort.length; x++) {
       for (int y = 0; y < sortIndexes[x]; y++) {
         sorted[z++] = x;
+        builder.append(x).append(",");
       }
     }
 
-    for (int x : sorted) {
-      System.out.println(x);
-    }
+    System.out.println(builder.toString());
   }
 }
