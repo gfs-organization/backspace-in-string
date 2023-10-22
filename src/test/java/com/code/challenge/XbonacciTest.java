@@ -24,10 +24,10 @@ class XbonacciTest {
 
   @Test
   public void sampleTests() {
-    assertArrayEquals(new double[] {1, 1, 1, 3, 5, 9, 17, 31, 57, 105}, variabonacci.tribonacci_stream(new double[] {1, 1, 1}, 10), precision);
-    assertArrayEquals(new double[] {0, 0, 1, 1, 2, 4, 7, 13, 24, 44}, variabonacci.tribonacci(new double[] {0, 0, 1}, 10), precision);
-    assertArrayEquals(new double[] {0, 1, 1, 2, 4, 7, 13, 24, 44, 81}, variabonacci.tribonacci(new double[] {0, 1, 1}, 10), precision);
+    assertArrayEquals(new double[] {1, 1, 1, 3, 5, 9, 17, 31, 57, 105}, variabonacci.tribinacci_2(new double[] {1, 1, 1}, 10), precision);
+    assertArrayEquals(new double[] {0, 0, 1, 1, 2, 4, 7, 13, 24, 44}, variabonacci.tribinacci_2(new double[] {0, 0, 1}, 10), precision);
+    assertArrayEquals(new double[] {0, 1, 1, 2, 4, 7, 13, 24, 44, 81}, variabonacci.tribinacci_2(new double[] {0, 1, 1}, 10), precision);
 
-    assertArrayEquals(new double[] {5, 4, 3, 12, 19, 34, 65, 118, 217, 400}, variabonacci.tribonacci(new double[] {5, 4, 3}, 10), precision);
+    assertArrayEquals(new double[] {5, 4, 3, 12, 19, 34, 65, 118, 217, 400}, variabonacci.tribinacci_2(new double[] {5, 4, 3}, 10), precision);
   }
 }

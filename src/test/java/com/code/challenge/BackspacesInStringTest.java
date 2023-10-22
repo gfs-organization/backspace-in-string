@@ -21,7 +21,7 @@ public class BackspacesInStringTest {
     final String input = RandomStringUtil.replaceRandomString("abcdefg hi*$90@");
     final String expected = leadingSolution(input);
 
-    assertThat(target.solution(input), is(expected));
+    assertThat(target.solution5(input), is(expected));
   }
 
   @Test
@@ -29,7 +29,7 @@ public class BackspacesInStringTest {
     final String input = RandomStringUtil.replaceRandomString("abc#d#c");
     final String expected = leadingSolution(input);
 
-    assertThat(target.solution(input), is(expected));
+    assertThat(target.solution5(input), is(expected));
   }
 
   @Test
@@ -37,7 +37,7 @@ public class BackspacesInStringTest {
     final String input = RandomStringUtil.replaceRandomString("abc##d######");
     final String expected = leadingSolution(input);
 
-    assertThat(target.solution(input), is(expected));
+    assertThat(target.solution5(input), is(expected));
   }
 
   @Test
@@ -45,7 +45,7 @@ public class BackspacesInStringTest {
     final String input = RandomStringUtil.replaceRandomString("########");
     final String expected = leadingSolution(input);
 
-    assertThat(target.solution(input), is(expected));
+    assertThat(target.solution5(input), is(expected));
   }
 
   private String leadingSolution(final String testString) {

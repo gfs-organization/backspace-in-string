@@ -19,9 +19,24 @@ public class Xbonacci {
     return result;
   }
 
+  public double[] tribinacci_2(double[] s, int n) {
+    double[] result = new double[n];
+
+    for (int x = 0; x < n; x++) {
+      if (x < 3) {
+        result[x] = s[x];
+      } else {
+        result[x] = result[x - 1] + result[x - 2] + result[x - 3];
+      }
+    }
+
+    return result;
+  }
+
   public double[] tribonacci_stream(double[] s, int n) {
 
     AtomicInteger x = new AtomicInteger(1);
+
     return DoubleStream.iterate(s[0],
             current -> {
               if (x.intValue() < 3) {

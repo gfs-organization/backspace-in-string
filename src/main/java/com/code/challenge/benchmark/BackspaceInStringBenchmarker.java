@@ -76,13 +76,13 @@ public class BackspaceInStringBenchmarker {
     BackspacesInString target = new BackspacesInString();
 
     // 231 character run
-    target.solution(state.shortString);
+    target.solution5(state.shortString);
 
     // 445 character run
-    target.solution(state.mediumString);
+    target.solution5(state.mediumString);
 
     // 3671 character run
-    target.solution(state.longString);
+    target.solution5(state.longString);
 
   }
 
